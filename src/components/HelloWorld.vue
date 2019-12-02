@@ -1,113 +1,69 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+    <multiple-relation-map :relation-data="mockData" :options="options"/>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+  import MultipleRelationMap from './MultipleRelationMap'
+
+  const mockData = require('../assets/multiple-relation-data')
+
+  export default {
+    name: 'HelloWorld',
+    components: {MultipleRelationMap},
+    data() {
+      return {
+        mockData,
+        options: {
+          circleStyle: {
+            sizeDomain: ["root", "enterprise", "person"],
+            sizeRange: [50, 40, 30],
+            // 圆形样式
+            bgColor: {
+              domainField: "type", // 作用域对应node中的字段
+              domain: ["root", "enterprise", "person"], // 为空默认使用levelDomain,此时颜色将按照不同层区分
+              range: {
+                // 默认显示色值
+                default: ["#F2814C", "#129BE7", "#16B4C3"],
+                // 选择后的色值
+                selected: ["#D97344", "#108BCF", "#13A1AF"]
+              }
+            },
+          },
+          linkStyle: {
+            // 线条名称
+            nameField: 'name',
+            // 偏移角度基础大小, 度为单位
+            offsetAngle: 20,
+            // 连接线作用域
+            colorDomain: ['高管关系', '投资', '法人'],
+            // 连接线职域名
+            colorRange: ['#B0BCED', '#F8C0A5', '#97E3C1'],
+            font: {
+              size: '12px',
+              color: '#888888',
+              colorSameLink: false, // 连接线字体颜色是否与连接线颜色一致
+            },
+          },
+          toolTips: {
+            formatter: node => {
+              return `<h3>${node.name}</h3>`;
+            }
+          },
+          levelActive: {
+            range: ['SIGLE', 'SIGLE', 'SIGLE-ROUTE', 'SIGLE-ROUTE'],
+          }
+        }
+      }
+    },
+    created() {
+      console.log(this.mockData)
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 </style>

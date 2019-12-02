@@ -1,0 +1,401 @@
+{
+  "nodes": [
+    {
+      "id": 0,
+      "name": "深圳市腾讯计算机系统有限公司",
+      "type": "root"
+    },
+    {
+      "id": 1,
+      "name": "谢晴华",
+      "type": "person"
+    },
+    {
+      "id": 2,
+      "name": "周昭钦",
+      "type": "person"
+    },
+    {
+      "id": 3,
+      "name": "众安在线财产保险股份有限公司",
+      "type": "enterprise"
+    },
+    {
+      "id": 4,
+      "name": "浙江蚂蚁小微金融服务集团股份有限公司",
+      "type": "enterprise"
+    },
+    {
+      "id": 5,
+      "name": "武卫",
+      "type": "person"
+    },
+    {
+      "id": 6,
+      "name": "苏州钟鼎三号创业投资中心（有限合伙）",
+      "type": "enterprise"
+    },
+    {
+      "id": 7,
+      "name": "上海歌斐信熙投资中心（有限合伙）",
+      "type": "enterprise"
+    },
+    {
+      "id": 8,
+      "name": "西藏源代码股权投资合伙企业（有限合伙）",
+      "type": "enterprise"
+    },
+    {
+      "id": 9,
+      "name": "张一鸣",
+      "type": "person"
+    },
+    {
+      "id": 10,
+      "name": "西藏源尚股权投资合伙企业（有限合伙）",
+      "type": "enterprise"
+    },
+    {
+      "id": 11,
+      "name": "南京四五六网络科技有限公司",
+      "type": "enterprise"
+    },
+    {
+      "id": 12,
+      "name": "北京百度网讯科技有限公司",
+      "type": "root"
+    },
+    {
+      "id": 13,
+      "name": "客如云科技（北京）股份有限公司",
+      "type": "enterprise"
+    },
+    {
+      "id": 14,
+      "name": "深圳市百分之百数码科技有限公司",
+      "type": "enterprise"
+    },
+    {
+      "id": 15,
+      "name": "上海智奥一号店信息技术有限公司",
+      "type": "enterprise"
+    },
+    {
+      "id": 16,
+      "name": "北京京东世纪贸易有限公司",
+      "type": "root"
+    },
+    {
+      "id": 17,
+      "name": "北京京东尚科信息技术有限公司",
+      "type": "enterprise"
+    },
+    {
+      "id": 18,
+      "name": "阿里巴巴（中国）有限公司",
+      "type": "root"
+    },
+    {
+      "id": 19,
+      "name": "张勇",
+      "type": "person"
+    },
+    {
+      "id": 20,
+      "name": "马云",
+      "type": "person"
+    },
+    {
+      "id": 21,
+      "name": "陆兆禧",
+      "type": "person"
+    },
+    {
+      "id": 22,
+      "name": "杭州君澳股权投资合伙企业（有限合伙）",
+      "type": "enterprise"
+    },
+    {
+      "id": 23,
+      "name": "吴泳铭",
+      "type": "person"
+    },
+    {
+      "id": 24,
+      "name": "上海商派网络科技有限公司",
+      "type": "enterprise"
+    },
+    {
+      "id": 25,
+      "name": "横琴焌泽管理咨询有限公司",
+      "type": "enterprise"
+    },
+    {
+      "id": 26,
+      "name": "刘强东",
+      "type": "person"
+    },
+    {
+      "id": 27,
+      "name": "经纬创腾（杭州）创业投资合伙企业（有限合伙）",
+      "type": "enterprise"
+    },
+    {
+      "id": 28,
+      "name": "北京字节跳动网络技术有限公司",
+      "type": "root"
+    },
+    {
+      "id": 29,
+      "name": "王琼",
+      "type": "person"
+    },
+    {
+      "id": 30,
+      "name": "北京白鹭世纪科技股份有限公司",
+      "type": "enterprise"
+    },
+    {
+      "id": 31,
+      "name": "深圳市创新投资集团有限公司",
+      "type": "enterprise"
+    },
+    {
+      "id": 32,
+      "name": "北京智行者科技有限公司",
+      "type": "enterprise"
+    },
+    {
+      "id": 33,
+      "name": "南京网典科技有限公司",
+      "type": "enterprise"
+    },
+    {
+      "id": 34,
+      "name": "杭州口口相传网络技术有限公司",
+      "type": "enterprise"
+    },
+    {
+      "id": 35,
+      "name": "杭州阿里创业投资有限公司",
+      "type": "enterprise"
+    },
+    {
+      "id": 36,
+      "name": "达孜县百瑞翔创业投资管理有限责任公司",
+      "type": "enterprise"
+    }
+  ],
+  "links": [
+    {
+      "relation": "高管关系",
+      "source": 0,
+      "target": 1
+    },
+    {
+      "relation": "高管关系",
+      "source": 0,
+      "target": 2
+    },
+    {
+      "relation": "投资",
+      "source": 0,
+      "target": 3
+    },
+    {
+      "relation": "投资",
+      "source": 0,
+      "target": 6
+    },
+    {
+      "relation": "高管关系",
+      "source": 1,
+      "target": 33
+    },
+    {
+      "relation": "高管关系",
+      "source": 2,
+      "target": 15
+    },
+    {
+      "relation": "投资",
+      "source": 3,
+      "target": 4
+    },
+    {
+      "relation": "高管关系",
+      "source": 4,
+      "target": 5
+    },
+    {
+      "relation": "高管关系",
+      "source": 5,
+      "target": 18
+    },
+    {
+      "relation": "投资",
+      "source": 6,
+      "target": 7
+    },
+    {
+      "relation": "投资",
+      "source": 7,
+      "target": 8
+    },
+    {
+      "relation": "投资",
+      "source": 8,
+      "target": 9
+    },
+    {
+      "relation": "投资",
+      "source": 9,
+      "target": 10
+    },
+    {
+      "relation": "法人",
+      "source": 9,
+      "target": 28
+    },
+    {
+      "relation": "投资",
+      "source": 10,
+      "target": 23
+    },
+    {
+      "relation": "投资",
+      "source": 11,
+      "target": 12
+    },
+    {
+      "relation": "投资",
+      "source": 11,
+      "target": 33
+    },
+    {
+      "relation": "投资",
+      "source": 12,
+      "target": 13
+    },
+    {
+      "relation": "投资",
+      "source": 12,
+      "target": 14
+    },
+    {
+      "relation": "投资",
+      "source": 12,
+      "target": 36
+    },
+    {
+      "relation": "投资",
+      "source": 13,
+      "target": 34
+    },
+    {
+      "relation": "投资",
+      "source": 14,
+      "target": 31
+    },
+    {
+      "relation": "投资",
+      "source": 15,
+      "target": 16
+    },
+    {
+      "relation": "投资",
+      "source": 16,
+      "target": 17
+    },
+    {
+      "relation": "法人",
+      "source": 16,
+      "target": 26
+    },
+    {
+      "relation": "投资",
+      "source": 17,
+      "target": 32
+    },
+    {
+      "relation": "法人",
+      "source": 18,
+      "target": 19
+    },
+    {
+      "relation": "高管关系",
+      "source": 18,
+      "target": 20
+    },
+    {
+      "relation": "高管关系",
+      "source": 18,
+      "target": 21
+    },
+    {
+      "relation": "投资",
+      "source": 19,
+      "target": 22
+    },
+    {
+      "relation": "投资",
+      "source": 20,
+      "target": 34
+    },
+    {
+      "relation": "高管关系",
+      "source": 21,
+      "target": 35
+    },
+    {
+      "relation": "投资",
+      "source": 22,
+      "target": 23
+    },
+    {
+      "relation": "投资",
+      "source": 24,
+      "target": 25
+    },
+    {
+      "relation": "投资",
+      "source": 24,
+      "target": 35
+    },
+    {
+      "relation": "高管关系",
+      "source": 25,
+      "target": 26
+    },
+    {
+      "relation": "投资",
+      "source": 26,
+      "target": 27
+    },
+    {
+      "relation": "投资",
+      "source": 27,
+      "target": 30
+    },
+    {
+      "relation": "高管关系",
+      "source": 28,
+      "target": 29
+    },
+    {
+      "relation": "高管关系",
+      "source": 29,
+      "target": 30
+    },
+    {
+      "relation": "投资",
+      "source": 30,
+      "target": 31
+    },
+    {
+      "relation": "投资",
+      "source": 32,
+      "target": 36
+    }
+  ]
+}
