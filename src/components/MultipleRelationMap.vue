@@ -123,7 +123,6 @@
         if (_.isEmpty(this.relationData)) {
           return;
         }
-        console.log('合法性检查通过')
         // 数据库格式化
         this.genData();
         // 初始化关系图
@@ -141,6 +140,32 @@
         this.canvas = d3.select(this.$refs.multipleRelationMap)
           .attr('width', `${this.canvasInfo.width}px`)
           .attr('height', `${this.canvasInfo.height}px`);
+
+        // mouse hover事件
+        this.canvas.on('mousemove', () => {
+          const point = d3.mouse(this.$refs.multipleRelationMap);
+          let node = null;
+          let minDistance = Infinity;
+          const currentScale = d3.zoomTransform(this.canvas.node()).k;
+          console.log('currentScale', currentScale);
+          this.nodesData.forEach((d) => {
+            var dx = d.x - point[0];
+            var dy = d.y - point[1];
+            var r = this.circleScale(d.type);
+            var distance = Math.sqrt((dx * dx) + (dy * dy));
+            if (distance < minDistance && distance < r + 1) {
+              minDistance = distance;
+              node = d;
+            }
+          });
+          // console.log(node);
+          this.tickActions(node);
+        });
+
+        this.canvas.on('mouseout', () => {
+          this.tickActions()
+          console.log('mouseout');
+        });
 
         this.context = this.canvas.node().getContext('2d');
 
@@ -402,9 +427,9 @@
 
       },
       // 绘制圆中的文本
-      genCircleText(text, x, y, maxWidth, lineHeight) {
+      genCircleText(text, x, y, maxWidth, fontColor, lineHeight) {
         this.context.font = `${this.config.circleStyle.font.size} ${this.config.circleStyle.font.fontFamily}`;
-        this.context.fillStyle = this.config.circleStyle.font.color;
+        this.context.fillStyle = fontColor;
         this.context.textAlign = 'center';
         this.context.textBaseline = 'middle';
         this.warpText(text, x, y, maxWidth, lineHeight);
@@ -468,13 +493,14 @@
         this.context.fill();
       },
       // sim tick action
-      tickActions() {
+      tickActions(node) {
         // canvas 状态保存
         this.context.save();
         this.context.clearRect(0, 0, this.canvasInfo.width, this.canvasInfo.height);
 
         this.context.translate(this.transform.x, this.transform.y);
         this.context.scale(this.transform.k, this.transform.k);
+
 
         // 连线/箭头、箭头上的文字
         this.linksData.forEach(d => {
@@ -486,8 +512,12 @@
 
         // 圆
         this.nodesData.forEach(d => {
-          this.genCircle(d.x, d.y, this.circleScale(d.type), this.circleBgDefaultScale(d[this.config.circleStyle.bgColor.domainField]));
-          this.genCircleText(d.name, d.x, d.y, this.circleScale(d.type) * 2 - 10);
+          // mousemove时，传入了指定的node时，高亮显示对应node并置灰其他node；否则默认全部高亮
+          let nodeBgColor = node && d !== node ? "#e4e5e5" : this.circleBgDefaultScale(d[this.config.circleStyle.bgColor.domainField]);
+          let nodeTextColor = node && d !== node ? "#eee" : this.config.circleStyle.font.color;
+
+          this.genCircle(d.x, d.y, this.circleScale(d.type), nodeBgColor);
+          this.genCircleText(d.name, d.x, d.y, this.circleScale(d.type) * 2 - 10, nodeTextColor);
         });
 
         // canvas 状态恢复
